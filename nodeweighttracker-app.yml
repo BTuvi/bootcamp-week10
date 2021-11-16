@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeweighttracker-app
+  labels:
+    app: nodeweighttracker-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodeweighttracker-app
+  template:
+    metadata:
+      name: nodeweighttracker-app
+      labels:
+        app: nodeweighttracker-app
+    spec:
+      containers:
+      - name: nodeweighttracker-app
+        image: bootcampappcontainer.azurecr.io/bootcamp-app:169
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeweighttracker-app-svc
+  labels:
+    app: bootcamp-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: bootcamp-app
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 80
+

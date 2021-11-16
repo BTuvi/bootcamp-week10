@@ -27,6 +27,7 @@ stages:
         vmImage: $(vmImageName)
       steps:
         - task: Npm@1
+          displayName: npm install
           inputs:
             command: 'install'
             workingDir: '$(Build.SourcesDirectory)'
