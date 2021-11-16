@@ -35,6 +35,11 @@ stages:
           Dockerfile: $(dockerfilePath)
           tags: |
             $(tag)
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(System.DefaultWorkingDirectory)/deployment/'
+          ArtifactName: 'bootcamp-app'
+          publishLocation: 'Container'
 
   #     # CD staging
   # - stage: DeployToStaging
