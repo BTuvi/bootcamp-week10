@@ -20,6 +20,17 @@ stages:
   - stage: CI
     displayName: Build and push 
     jobs:
+    - job:
+      displayName: Run npm install
+      pool: 
+        name: bootcamp-app-pool
+        vmImage: $(vmImageName)
+      steps:
+        - task: Npm@1
+          inputs:
+            command: 'install'
+            workingDir: '$(Build.SourcesDirectory)'
+
     - job: Build
       displayName: Build
       pool:
