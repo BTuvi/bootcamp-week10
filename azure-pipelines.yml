@@ -38,7 +38,7 @@ stages:
       - task: PublishBuildArtifacts@1
         displayName: Artifact the container.
         inputs:
-          PathtoPublish: '$(System.DefaultWorkingDirectory)/deployment/'
+          PathtoPublish: '$(System.DefaultWorkingDirectory)/'
           ArtifactName: 'bootcamp-app' 
           publishLocation: 'Container' 
 
