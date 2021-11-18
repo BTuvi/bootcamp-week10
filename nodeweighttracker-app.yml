@@ -18,56 +18,83 @@ spec:
       containers:
       - name: nodeweighttracker-app
         image: bootcampappcontainer.azurecr.io/bootcamp-app:169
-        env:
-        #Host configuration
-        - name: HOST
-          value: $(HOST)
-        - name: PORT
-          value: $(PORT)
-        - name: HOST_URL
-          value: $(HOST_URL)
-        - name: COOKIE_ENCRYPT_PWD
-          value: $(COOKIE_ENCRYPT_PWD)
-        - name: NODE_ENV
-          value: $(NODE_ENV)
-        # Okta configuration
-        - name: OKTA_ORG_URL
-          value: $(OKTA_ORG_URL)
-        - name: OKTA_CLIENT_ID
-          value: $(OKTA_CLIENT_ID)
-        - name: OKTA_CLIENT_SECRET
-          value: $(OKTA_CLIENT_SECRET)
-         # Postgres configuration
-        - name: PGHOST
-          value: $(PG_HOST)
-        - name: PGUSERNAME
-          value: $(PGUSERNAME)
-        - name: PGDATABASE
-          value: $(PGDATABASE)
-        - name: PGPASSWORD
-          value: $(PGPASSWORD)
-        - name: PGPORT
-          value: $(PGPORT)
-        
         imagePullPolicy: Always
         ports:
         - containerPort: 80
+        env:
+          - name: PORT
+            valueFrom:
+              configMapKeyRef:
+                name: env-config
+                key: PORT
+          - name: HOST
+            valueFrom:
+              configMapKeyRef:
+                name: env-config
+                key: HOST
+          - name: NODE_ENV
+            valueFrom:
+              configMapKeyRef:
+                name: env-config
+                key: NODE_ENV
+          - name: HOST_URL
+            valueFrom:
+              configMapKeyRef:
+                name: env-config
+                key: HOST_URL
+          - name: OKTA_ORG_URL
+            valueFrom:
+              configMapKeyRef:
+                name: env-config
+                key: OKTA_ORG_URL
+          - name:  PGDATABASE
+            valueFrom:
+              configMapKeyRef:
+                name: env-config
+                key:  PGDATABASE   
+          - name:  PGPORT
+            valueFrom:
+              configMapKeyRef:
+                name: env-config
+                key:  PGPORT 
+        volumeMounts:
+          - name: secrets-app
+            mountPath: ./secrets-app
+      volumes:
+        - name: secrets-app
+          secret:
+            secretName: env-secrets
 
----
 
-apiVersion: v1
-kind: Service
-metadata:
-  name: nodeweighttracker-app-svc
-  labels:
-    app: bootcamp-app
-spec:
-  type: LoadBalancer
-  selector:
-    app: bootcamp-app
-  ports:
-    - name: http
-      port: 80
-      protocol: TCP
-      targetPort: 80
 
+
+        # env:
+        # #Host configuration
+        # - name: HOST
+        #   value: $(HOST)
+        # - name: PORT
+        #   value: $(PORT)
+        # - name: HOST_URL
+        #   value: $(HOST_URL)
+        # - name: COOKIE_ENCRYPT_PWD
+        #   value: $(COOKIE_ENCRYPT_PWD)
+        # - name: NODE_ENV
+        #   value: $(NODE_ENV)
+        # # Okta configuration
+        # - name: OKTA_ORG_URL
+        #   value: $(OKTA_ORG_URL)
+        # - name: OKTA_CLIENT_ID
+        #   value: $(OKTA_CLIENT_ID)
+        # - name: OKTA_CLIENT_SECRET
+        #   value: $(OKTA_CLIENT_SECRET)
+        #  # Postgres configuration
+        # - name: PGHOST
+        #   value: $(PG_HOST)
+        # - name: PGUSERNAME
+        #   value: $(PGUSERNAME)
+        # - name: PGDATABASE
+        #   value: $(PGDATABASE)
+        # - name: PGPASSWORD
+        #   value: $(PGPASSWORD)
+        # - name: PGPORT
+        #   value: $(PGPORT)

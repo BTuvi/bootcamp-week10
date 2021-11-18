@@ -13,3 +13,5 @@
 # **/.env
 # **/.editorconfig
 # **/dist
+**/nodeweighttracker-cm.yml
+**/nodeweighttracker-secret.yml
