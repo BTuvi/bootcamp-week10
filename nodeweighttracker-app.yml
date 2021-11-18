@@ -57,100 +57,33 @@ spec:
               configMapKeyRef:
                 name: env-config
                 key:  PGPORT 
-          # - name: COOKIE_ENCRYPT_PWD
-          #   valueFrom:
-          #     configMapKeyRef:
-          #       name: env-config
-          #       key: COOKIE_ENCRYPT_PWD 
-          # - name: OKTA_CLIENT_ID
-          #   valueFrom:
-          #     configMapKeyRef:
-          #       name: env-config
-          #       key: OKTA_CLIENT_ID
-          # - name: OKTA_CLIENT_SECRET
-          #   valueFrom:
-          #     configMapKeyRef:
-          #       name: env-config
-          #       key: OKTA_CLIENT_SECRET
-          # - name: PGHOST
-          #   valueFrom:
-          #     configMapKeyRef:
-          #       name: env-config
-          #       key: PGHOST
-          # - name: PGUSERNAME
-          #   valueFrom:
-          #     configMapKeyRef:
-          #       name: env-config
-          #       key: PGUSERNAME
-          # - name: PGPASSWORD
-          #   valueFrom:
-          #     configMapKeyRef:
-          #       name: env-config
-          #       key: PGPASSWORD
-      env:
-        - name: COOKIE_ENCRYPT_PWD
-          valueFrom:
-          secretKeyRef:
-            name: env-secrets
-            key: COOKIE_ENCRYPT_PWD
-        - name: OKTA_CLIENT_ID
-          valueFrom:
-          secretKeyRef:
-            name: env-secrets
-            key: OKTA_CLIENT_ID
-        - name: OKTA_CLIENT_SECRET
-          valueFrom:
-          secretKeyRef:
-            name: env-secrets
-            key: OKTA_CLIENT_SECRET
-        - name: PGHOST
-          valueFrom:
-          secretKeyRef:
-            name: env-secrets
-            key: PGHOST
-        - name: PGUSERNAME
-          valueFrom:
-          secretKeyRef:
-            name: env-secrets
-            key: PGUSERNAME
-        - name: PGPASSWORD
-          valueFrom:
-          secretKeyRef:
-            name: env-secrets
-            key: PGPASSWORD
-
-
-
-
-
-
-        # env:
-        # #Host configuration
-        # - name: HOST
-        #   value: $(HOST)
-        # - name: PORT
-        #   value: $(PORT)
-        # - name: HOST_URL
-        #   value: $(HOST_URL)
-        # - name: COOKIE_ENCRYPT_PWD
-        #   value: $(COOKIE_ENCRYPT_PWD)
-        # - name: NODE_ENV
-        #   value: $(NODE_ENV)
-        # # Okta configuration
-        # - name: OKTA_ORG_URL
-        #   value: $(OKTA_ORG_URL)
-        # - name: OKTA_CLIENT_ID
-        #   value: $(OKTA_CLIENT_ID)
-        # - name: OKTA_CLIENT_SECRET
-        #   value: $(OKTA_CLIENT_SECRET)
-        #  # Postgres configuration
-        # - name: PGHOST
-        #   value: $(PG_HOST)
-        # - name: PGUSERNAME
-        #   value: $(PGUSERNAME)
-        # - name: PGDATABASE
-        #   value: $(PGDATABASE)
-        # - name: PGPASSWORD
-        #   value: $(PGPASSWORD)
-        # - name: PGPORT
-        #   value: $(PGPORT)
+          - name: COOKIE_ENCRYPT_PWD
+            valueFrom:
+              secretKeyRef:
+                name: env-secrets
+                key: COOKIE_ENCRYPT_PWD
+          - name: OKTA_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: env-secrets
+                key: OKTA_CLIENT_ID
+          - name: OKTA_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: env-secrets
+                key: OKTA_CLIENT_SECRET
+          - name: PGHOST
+            valueFrom:
+              secretKeyRef:
+                name: env-secrets
+                key: PGHOST
+          - name: PGUSERNAME
+            valueFrom:
+              secretKeyRef:
+                name: env-secrets
+                key: PGUSERNAME
+          - name: PGPASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: env-secrets
+                key: PGPASSWORD
