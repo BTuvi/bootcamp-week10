@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nodeweighttracker-app
-        image: bootcampappcontainer.azurecr.io/bootcamp-app:202
+        image: bootcampappcontainer.azurecr.io/bootcamp-app:199
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -87,6 +87,38 @@ spec:
           #     configMapKeyRef:
           #       name: env-config
           #       key: PGPASSWORD
+      env:
+        - name: COOKIE_ENCRYPT_PWD
+          valueFrom:
+          secretKeyRef:
+            name: env-secrets
+            key: COOKIE_ENCRYPT_PWD
+        - name: OKTA_CLIENT_ID
+          valueFrom:
+          secretKeyRef:
+            name: env-secrets
+            key: OKTA_CLIENT_ID
+        - name: OKTA_CLIENT_SECRET
+          valueFrom:
+          secretKeyRef:
+            name: env-secrets
+            key: OKTA_CLIENT_SECRET
+        - name: PGHOST
+          valueFrom:
+          secretKeyRef:
+            name: env-secrets
+            key: PGHOST
+        - name: PGUSERNAME
+          valueFrom:
+          secretKeyRef:
+            name: env-secrets
+            key: PGUSERNAME
+        - name: PGPASSWORD
+          valueFrom:
+          secretKeyRef:
+            name: env-secrets
+            key: PGPASSWORD
+
 
 
 
