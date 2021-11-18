@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:14
 COPY . /bootcamp-app
 WORKDIR /bootcamp-app
 ARG port=80
