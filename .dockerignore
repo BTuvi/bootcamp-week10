@@ -1,17 +1,17 @@
-# **/Dockerfile
-# # **/Dockerfile.archive
-# # /*.yml
-# # # **/node_modules/
-# **/.dockerignore
-# **/.git
-# **/.gitignore
-# **/README.md
-# **/LICENSE
-# **/.vscode
-# # **/npm-debug.log
+**/Dockerfile
+# **/Dockerfile.archive
+/*.yml
+# # **/node_modules/
+**/.dockerignore
+**/.git
+**/.gitignore
+**/README.md
+**/LICENSE
+**/.vscode
+**/npm-debug.log
 # # **/coverage
 # # **/.env
-# # **/.editorconfig
-# # **/dist
-# **/nodeweighttracker-cm.yml
-# **/nodeweighttracker-secret.yml
+**/.editorconfig
+**/dist
+**/nodeweighttracker-cm.yml
+**/nodeweighttracker-secret.yml
