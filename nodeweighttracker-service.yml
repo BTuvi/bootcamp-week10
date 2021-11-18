@@ -3,13 +3,14 @@ kind: Service
 metadata:
   name: nodeweighttracker-app-svc
   labels:
-    app: bootcamp-app
+    app: nodeweighttracker-app
 spec:
   type: LoadBalancer
   selector:
-    app: bootcamp-app
+    app: nodeweighttracker-app
   ports:
     - name: http
       port: 80
       protocol: TCP
       targetPort: 80
+    
