@@ -57,36 +57,36 @@ spec:
               configMapKeyRef:
                 name: env-config
                 key:  PGPORT 
-          - name: COOKIE_ENCRYPT_PWD
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: COOKIE_ENCRYPT_PWD 
-          - name: OKTA_CLIENT_ID
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: OKTA_CLIENT_ID
-          - name: OKTA_CLIENT_SECRET
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: OKTA_CLIENT_SECRET
-          - name: PGHOST
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: PGHOST
-          - name: PGUSERNAME
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: PGUSERNAME
-          - name: PGPASSWORD
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: PGPASSWORD
+          # - name: COOKIE_ENCRYPT_PWD
+          #   valueFrom:
+          #     configMapKeyRef:
+          #       name: env-config
+          #       key: COOKIE_ENCRYPT_PWD 
+          # - name: OKTA_CLIENT_ID
+          #   valueFrom:
+          #     configMapKeyRef:
+          #       name: env-config
+          #       key: OKTA_CLIENT_ID
+          # - name: OKTA_CLIENT_SECRET
+          #   valueFrom:
+          #     configMapKeyRef:
+          #       name: env-config
+          #       key: OKTA_CLIENT_SECRET
+          # - name: PGHOST
+          #   valueFrom:
+          #     configMapKeyRef:
+          #       name: env-config
+          #       key: PGHOST
+          # - name: PGUSERNAME
+          #   valueFrom:
+          #     configMapKeyRef:
+          #       name: env-config
+          #       key: PGUSERNAME
+          # - name: PGPASSWORD
+          #   valueFrom:
+          #     configMapKeyRef:
+          #       name: env-config
+          #       key: PGPASSWORD
 
         volumeMounts:
           - name: secrets-app
