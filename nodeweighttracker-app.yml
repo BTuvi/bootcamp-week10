@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nodeweighttracker-app
-        image: bootcampappcontainer.azurecr.io/bootcamp-app:199
+        image: bootcampappcontainer.azurecr.io/bootcamp-app:202
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -88,13 +88,6 @@ spec:
           #       name: env-config
           #       key: PGPASSWORD
 
-        volumeMounts:
-          - name: secrets-app
-            mountPath: ./secrets-app
-      volumes:
-        - name: secrets-app
-          secret:
-            secretName: env-secrets
 
 
 
