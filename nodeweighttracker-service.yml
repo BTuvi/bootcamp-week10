@@ -5,7 +5,6 @@ metadata:
   labels:
     app: nodeweighttracker-app
 spec:
-  type: LoadBalancer
   selector:
     app: nodeweighttracker-app
   ports:

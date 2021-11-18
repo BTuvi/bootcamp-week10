@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nodeweighttracker-app-ingress
+  namespace: staging
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+    ingress.kubernetes.io/rewrite-target: /
+  labels:
+    name: nodeweighttracker-app-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: testnodeweighttracker
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/nodeweighttracker"
+        backend:
+          service:
+            name: nodeweighttracker-app-svc
+            port: 
+              number: 80
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  labels:
+    app.kubernetes.io/component: controller
+  name: nginx
+  annotations:
+    ingressclass.kubernetes.io/is-default-class: "true"
+spec:
+  controller: k8s.io/ingress-nginx
