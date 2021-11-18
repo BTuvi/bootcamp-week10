@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nodeweighttracker-app
-        image: bootcampappcontainer.azurecr.io/bootcamp-app:196
+        image: bootcampappcontainer.azurecr.io/bootcamp-app:198
         imagePullPolicy: Always
         ports:
         - containerPort: 80
